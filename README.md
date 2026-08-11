@@ -1,54 +1,34 @@
-BOTautoPROMO (nome que vou substituir mais tarde)
-Sistema de linha de comando para monitoramento e atualização de preços de produtos, com histórico de comparação entre o preço atual e o preço anterior.
+BOTautoPROMO
 
-Sobre o projeto
+Sistema de linha de comando para monitoramento de preços: consulta um produto, recebe um novo valor, compara com o preço salvo anteriormente e atualiza o histórico no banco de dados.
 
-O BOTautoPROMO nasceu como um projeto de estudo prático de back-end com Node.js, evoluindo para uma ferramenta funcional de controle de preços. O sistema permite consultar um produto pelo nome, informar um novo preço e verificar automaticamente se houve queda em relação ao valor salvo anteriormente — persistindo o histórico em um banco de dados local.
-
-Este projeto foi desenvolvido como parte do meu aprendizado em desenvolvimento back-end, aplicando conceitos de banco de dados relacional, programação orientada a objetos e operações assíncronas em JavaScript.
+Projeto de estudo prático de back-end com Node.js, aplicando banco de dados relacional, POO e operações assíncronas.
 
 Funcionalidades
-Cadastro e consulta de produtos por nome
-Atualização de preços com comparação automática entre valor atual e anterior
-Persistência de dados em banco SQLite local
-Interface interativa via terminal, com fluxo contínuo de consultas
-Alerta no console quando um produto sofre queda de preço
-Tecnologias utilizadas
-Node.js — ambiente de execução
-better-sqlite3 — biblioteca para leitura e escrita no banco de dados SQLite
-Inquirer.js — biblioteca para criação de prompts interativos no terminal
+Consulta de produtos por nome
+Atualização de preço com comparação automática (atual vs. anterior)
+Persistência em banco SQLite local
+Fluxo interativo contínuo via terminal
+Tecnologias
+Node.js
+better-sqlite3 — leitura e escrita no banco SQLite
+Inquirer.js — prompts interativos no terminal
 Arquitetura
+Produto — lógica de comparação de preços
+BancoDeDados — acesso ao banco (busca, inserção, atualização)
 
-O projeto segue uma separação simples de responsabilidades, dividida em duas classes principais:
-
-Produto — responsável pela lógica de negócio (comparação de preços)
-BancoDeDados — responsável exclusivamente pelo acesso ao banco de dados (busca, inserção e atualização de registros)
-
-Essa separação mantém a lógica de comparação isolada de como os dados são armazenados, facilitando futuras mudanças de banco de dados sem impactar as regras de negócio.
+Separação que isola a regra de negócio de como os dados são armazenados.
 
 Como executar
-
-Pré-requisitos: Node.js instalado.
-
 bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/DBlack.Mercado.git
-
-# Acesse a pasta do projeto
-cd DBlack.Mercado
-
-# Instale as dependências
+git clone https://github.com/seu-usuario/BOTautoPROMO
+cd BOTautoPROMO
 npm install
-
-# Execute o programa
 node CPU.js
-
-O programa vai solicitar o nome de um produto já cadastrado, o novo preço, e informará se houve queda de preço, salvando o novo valor no banco.
-
 Roadmap
- Integração com a API do Telegram para envio automático de alertas de queda de preço
- Cadastro de novos produtos via terminal
+ Alertas automáticos via Telegram
+ Cadastro de novos produtos pelo terminal
  Testes automatizados
 Autor
 
-Desenvolvido por mim como projeto de portfólio e estudo prático de back-end com Node.js.
+Desenvolvido por mim, como projeto de portfólio e estudo de back-end com Node.js.
